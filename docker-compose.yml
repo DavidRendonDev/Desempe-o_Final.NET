@@ -8,7 +8,7 @@ services:
       MYSQL_PASSWORD: talentoplus123
       MYSQL_ROOT_PASSWORD: root123
     ports:
-      - "3306:3306"
+      - "3310:3306"   # <--- CAMBIADO (antes 3306 o 3307)
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
@@ -28,7 +28,7 @@ services:
       mysql:
         condition: service_healthy
     ports:
-      - "8081:8080"
+      - "9001:8080"   # <--- CAMBIADO (antes 8081:8080)
 
   web:
     build:
@@ -43,7 +43,7 @@ services:
       api:
         condition: service_started
     ports:
-      - "8080:8080"
+      - "9000:8080"   # <--- CAMBIADO (antes 8080:8080)
 
 volumes:
   mysql_data:
