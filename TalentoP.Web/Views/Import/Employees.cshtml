@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Import Employees";
+}
+
+<h2>Import Employees (Excel)</h2>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}
+
+@if (ViewBag.Success != null)
+{
+    <p style="color:green">@ViewBag.Success</p>
+}
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <button type="submit">Upload & Import</button>
+</form>
+
+<hr />
+<p><b>Important:</b> The Excel must have the expected headers in row 1.</p>

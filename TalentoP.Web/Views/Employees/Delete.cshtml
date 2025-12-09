@@ -1,0 +1,22 @@
+@model Domain.Entities.Employee
+
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+
+<h2>Delete Employee</h2>
+
+<p>Are you sure you want to delete this employee?</p>
+
+<ul>
+    <li><b>Document:</b> @Model.DocumentNumber</li>
+    <li><b>Name:</b> @Model.FirstName @Model.LastName</li>
+    <li><b>Email:</b> @Model.Email</li>
+    <li><b>Department:</b> @(Model.Department?.Name ?? "-")</li>
+</ul>
+
+<form method="post" asp-action="DeleteConfirmed">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit">Yes, delete</button>
+    <a asp-action="Index">Cancel</a>
+</form>

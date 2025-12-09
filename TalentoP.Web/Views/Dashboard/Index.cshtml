@@ -1,0 +1,61 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+<div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:16px;">
+    <div style="border:1px solid #ddd; padding:16px; border-radius:8px; min-width:220px;">
+        <h3>Total Employees</h3>
+        <p style="font-size:28px; margin:0;">@ViewBag.TotalEmployees</p>
+    </div>
+
+    <div style="border:1px solid #ddd; padding:16px; border-radius:8px; min-width:220px;">
+        <h3>Employees on Vacation</h3>
+        <p style="font-size:28px; margin:0;">@ViewBag.VacationEmployees</p>
+    </div>
+
+    <div style="border:1px solid #ddd; padding:16px; border-radius:8px; min-width:220px;">
+        <h3>Active Employees</h3>
+        <p style="font-size:28px; margin:0;">@ViewBag.ActiveEmployees</p>
+    </div>
+</div>
+
+<hr />
+
+<h3>AI Queries </h3>
+<div style="border:1px solid #ddd; padding:16px; border-radius:8px; max-width:720px;">
+    <p>Ask something like:</p>
+    <ul>
+        <li>How many employees are in Technology?</li>
+        <li>How many employees are Inactive?</li>
+        <li>How many Auxiliar job titles exist?</li>
+    </ul>
+
+    <input id="aiQuestion" style="width:100%; padding:8px;" placeholder="Type your question..." />
+    <button id="aiBtn" style="margin-top:8px;">Ask</button>
+
+    <p id="aiResult" style="margin-top:12px; font-weight:bold;"></p>
+</div>
+
+<script>
+    document.getElementById("aiBtn").addEventListener("click", async () => {
+        const q = document.getElementById("aiQuestion").value;
+        const resEl = document.getElementById("aiResult");
+        resEl.textContent = "Loading...";
+
+        const response = await fetch("/Dashboard/AiQuery", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ question: q })
+        });
+
+        const data = await response.json();
+        if (!data.ok) {
+            resEl.textContent = "Error: " + data.message;
+            return;
+        }
+
+        resEl.textContent = data.answer;
+    });
+</script>

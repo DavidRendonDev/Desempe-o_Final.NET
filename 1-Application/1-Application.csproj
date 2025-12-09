@@ -4,10 +4,6 @@
     <ProjectReference Include="..\2-Domain\2-Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>_1_Application</RootNamespace>
