@@ -1,0 +1,112 @@
+---- .NET / ASP.NET Core ----
+bin/
+obj/
+out/
+*.dll
+*.exe
+*.appsettings.Development.json
+*.log
+
+Archivos de usuario
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+Publicaciones
+publish/
+*.pubxml
+.pubxml.user
+
+Cobertura
+coverage/
+coverage.xml
+*.coverage
+*.coveragexml
+TestResults/
+
+---- Paquetes y dependencias ----
+NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+Herramientas globales
+.dotnet/
+tools/
+
+---- IDEs ----
+Visual Studio
+.vs/
+.vscode/
+.idea/
+.code-workspace
+
+JetBrains Rider
+.ReSharper/
+/_ReSharper.Caches/
+.idea/
+
+---- Logs y diagnósticos ----
+*.log
+logs/
+log/
+*.dmp
+
+---- Archivos temporales ----
+.temp/
+tmp/
+temp/
+*.tmp
+
+---- Sistema operativo ----
+Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+Linux
+*~
+
+---- Configuración y secretos ----
+Secret Manager
+/secrets.json
+secrets/
+
+User secrets (ASP.NET Core)
+/appsettings.Development.json
+/appsettings.Local.json
+/appsettings.*.local.json
+
+---- Entity Framework & Migrations ----
+EF Core Migrations (si generas artefactos extra)
+/Migrations/obj/
+/Migrations/bin/
+
+---- Clean Architecture / DDD ----
+Storage temporal en Infrastructure (ej: archivos locales)
+Infrastructure//Storage/
+Infrastructure//Local/
+
+Archivos generados por herramientas CQRS (MediatR, etc.)
+/Generated/
+**/CodeGeneration/
+
+---- Docker ----
+docker-compose.override.yml
+*.pid
+
+---- Otros ----
+Rider / ReSharper
+resharper.xml
+*.DotSettings.user
+
+Caches varias
+.cache/
+dist/
